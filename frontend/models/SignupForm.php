@@ -55,9 +55,9 @@ class SignupForm extends Model
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
         return $user->save() && $this->sendEmail($user);
-
-    }
-
+     
+        }
+        
     /**
      * Sends confirmation email to user
      * @param User $user user model to with email should be send
