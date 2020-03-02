@@ -21,6 +21,10 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'id') ?>
 
     <?= $form->field($model, 'title') ?>
+    
+    <?= $form->field($model, 'worker') ?>
+    
+    <?= $form->field($model, 'manager') ?>
 
     <?= $form->field($model, 'text') ?>
 

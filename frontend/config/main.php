@@ -41,6 +41,7 @@ return [
             'showScriptName' => false,
             'enableStrictParsing' => false,
             'rules' => [
+                '<action>' => 'site/<action>'
             ],
         ],
     ],

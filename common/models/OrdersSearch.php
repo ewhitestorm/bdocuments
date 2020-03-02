@@ -18,7 +18,7 @@ class OrdersSearch extends Orders
     {
         return [
             [['id'], 'integer'],
-            [['title', 'text', 'url'], 'safe'],
+            [['title', 'text', 'worker', 'manager', 'url'], 'safe'],
         ];
     }
 
@@ -61,9 +61,11 @@ class OrdersSearch extends Orders
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'text', $this->text])
-            ->andFilterWhere(['like', 'url', $this->url]);
+        $query ->andFilterWhere(['like', 'title', $this->title])
+               ->andFilterWhere(['like', 'worker', $this->text])
+               ->andFilterWhere(['like', 'manager', $this->text])
+               ->andFilterWhere(['like', 'text', $this->text])
+               ->andFilterWhere(['like', 'url', $this->url]);
 
         return $dataProvider;
     }

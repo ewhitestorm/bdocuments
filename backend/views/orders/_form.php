@@ -13,6 +13,10 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    
+    <?= $form->field($model, 'worker')->textInput(['maxlength' => true]) ?>
+    
+    <?= $form->field($model, 'manager')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
 

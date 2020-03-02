@@ -32,9 +32,10 @@ class Orders extends \yii\db\ActiveRecord
             [['text'], 'string'],
             [['title'], 'string', 'max' => 150],
             [['url'], 'string', 'max' => 200],
+            [['worker'], 'string', 'max' => 150],
+            [['manager'], 'string', 'max' => 150],
         ];
     }
-
     /**
      * {@inheritdoc}
      */
@@ -43,6 +44,8 @@ class Orders extends \yii\db\ActiveRecord
         return [
             'id' => 'Номер',
             'title' => 'Название',
+            'worker' => 'Работник',
+            'manager' => 'Руководитель',
             'text' => 'Текст',
             'url' => 'Ссылка',
         ];
