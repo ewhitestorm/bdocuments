@@ -76,7 +76,7 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
-
+    
     /**
      * Logs in a user.
      *
@@ -143,6 +143,11 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    
+    public function actionDoc()
+    {
+        return $this->render('doc');
     }
 
     /**
