@@ -18,25 +18,34 @@ return [
     ],
     'components' => [
         'request' => [
+            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+            'cookieValidationKey' => '[rsljTTKnDoyitYmEOrbS]',
             'csrfParam' => '_backendCSRF',
-            'csrfCookie' => [
-                'httpOnly' => true,
-                'path' => '/admin',
-            ],
+//            'csrfParam' => '_backendCSRF',
+//            'csrfCookie' => [
+//                'httpOnly' => true,
+//                'path' => '/admin',
+//            ],
         ],
         'user' => [
-            'identityClass' => [
-                'name' => '_backendIdentity',
-                'path' => '/admin',
-                'httpOnly' => true,
+            'identityClass' => 'common\models\Admin',
+            'enableAutoLogin' => true,
+            'identityCookie' => [
+                'name' => '_backendUser', // unique for backend
+//            'identityClass' => [
+//                'name' => '_backendIdentity',
+//                'path' => '/admin',
+//                'httpOnly' => true,
             ],
         ],
         'session' => [
+            'name' => 'PHPBACKSESSID',
+            'savePath' => sys_get_temp_dir(),
             // this is the name of the session cookie used for login on the backend
-            'name' => 'BACKENDSESSID',
-            'cookieParams' => [
-                'path' => '/admin',
-            ],
+//            'name' => 'BACKENDSESSID',
+//            'cookieParams' => [
+//                'path' => '/admin',
+//            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

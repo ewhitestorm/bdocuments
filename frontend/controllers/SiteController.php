@@ -70,8 +70,8 @@ class SiteController extends Controller
     public function actionCreateAdmin()
     {
  	$user = new \common\models\User();
-	$user->username = 'admin';
-	$user->email = 'admin@example.com';
+	$user->username = 'firstuser';
+	$user->email = 'firstuser@example.com';
 	$user->status = \common\models\User::STATUS_ACTIVE;
 	$user->setPassword('admin');
 	$user->generateAuthKey();
