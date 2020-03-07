@@ -66,6 +66,18 @@ class SiteController extends Controller
             ],
         ];
     }
+    
+    public function actionCreateAdmin()
+    {
+ 	$user = new \common\models\User();
+	$user->username = 'admin';
+	$user->email = 'admin@example.com';
+	$user->status = \common\models\User::STATUS_ACTIVE;
+	$user->setPassword('admin');
+	$user->generateAuthKey();
+	$user->save();
+	echo 'ok';
+    }
 
     /**
      * Displays homepage.
@@ -76,7 +88,7 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
-
+    
     /**
      * Logs in a user.
      *
@@ -143,6 +155,11 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    
+    public function actionDoc()
+    {
+        return $this->render('doc');
     }
 
     /**
