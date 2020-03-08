@@ -6,6 +6,9 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use backend\assets\AppAssetAdminLoginForm;
+
+AppAssetAdminLoginForm::register($this);
 
 $this->title = 'Login';
 //$this->params['breadcrumbs'][] = $this->title;
