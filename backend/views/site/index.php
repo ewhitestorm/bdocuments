@@ -31,7 +31,7 @@ $this->title = 'My Yii Application';
 
                 <p>Здесь осуществляется контроль за пользователями.</p>
 
-                    <input class="btn btn-default" value="Войти" type="button" onclick="location.href='users'" />
+                    <input class="btn btn-default" value="Войти" type="button" onclick="location.href='user'" />
             </div>
             <!--<div class="col-lg-4">
                 <h2>Heading</h2>
