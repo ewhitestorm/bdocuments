@@ -30,7 +30,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'username',
             'email:email',
-            'status',
+            [
+                'attribute' => 'status',
+                'value' => function(\common\models\User $user)
+                {
+                    $statuses = \common\models\User::statuses();
+                    return $statuses[$user->status];
+                },
+                'filter' => \common\models\User::statuses(),
+                        
+            ],
             //'auth_key',
             //'password_hash',
             //'password_reset_token',

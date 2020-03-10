@@ -59,6 +59,9 @@ class OrdersSearch extends Orders
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'title' => $this->title,
+            'worker' => $this->worker,
+            'manager' => $this->manager,
         ]);
 
         $query ->andFilterWhere(['like', 'title', $this->title])

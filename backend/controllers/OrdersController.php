@@ -67,7 +67,9 @@ class OrdersController extends Controller
         $model = new Orders();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            
+            return $this->redirect(['index']);
+            //return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -84,10 +86,12 @@ class OrdersController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        //$model = $this->findModel($id);
+        $model = Orders::findOne(['id' => $id]);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            //return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [
@@ -104,9 +108,10 @@ class OrdersController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        Orders::findOne(['id' => $id])->delete();
         return $this->redirect(['index']);
+        //$this->findModel($id)->delete();
+        //return $this->redirect(['index']);
     }
 
     /**
@@ -122,6 +127,6 @@ class OrdersController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
+        throw new NotFoundHttpException('Запрашиваемая страница не существует.');
     }
 }

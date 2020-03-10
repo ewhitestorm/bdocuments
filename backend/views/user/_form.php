@@ -12,17 +12,25 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
     
-    <?= $form->field($model, 'username')->textInput() ?>
+    <?= $form->field($model, 'username')
+             ->textInput()
+             ->hint('Напишите имя пользователя')
+    ?>
     
-    <?= $form->field($model, 'email')->textInput(['type' => 'email']) ?>
+    <?= $form->field($model, 'email')
+             ->textInput(['type' => 'email'])
+             ->hint('Напишите действующий адрес электронной почты')
+    ?>
    
-    <?= $form->field($model, 'status')->dropDownList([
-        \common\models\User::STATUS_INACTIVE => 'Неактивный',
-        \common\models\User::STATUS_ACTIVE => 'Активный',
-        \common\models\User::STATUS_DELETED => 'Удаленный',
-    ]) ?>
+    <?= $form->field($model, 'status')
+             ->dropDownList(\common\models\User::statuses())
+             ->hint('Выберите статус пользователя')
+    ?>
     
-    <?= $form->field($model, 'password')->passwordInput() ?>
+    <?= $form->field($model, 'password')
+             ->passwordInput()
+             ->hint('Напишите пароль (не менее 6-и знаков)')
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>

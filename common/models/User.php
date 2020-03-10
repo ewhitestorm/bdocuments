@@ -62,6 +62,16 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
     
+    public static function statuses()
+    {
+        return 
+        [
+            static::STATUS_INACTIVE => 'Неактивный',
+            static::STATUS_ACTIVE => 'Активный',
+            static::STATUS_DELETED => 'Удаленный',
+        ];
+    }
+    
     public function beforeSave($insert)
     {
         if($this->password){
@@ -77,7 +87,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function attributeLabels()
     {
         return [
-            'id' => 'Номер',
+            'id' => 'ID',
             'username' => 'Имя пользователя',
             'email' => 'E-mail',
             'status' => 'Статус',
